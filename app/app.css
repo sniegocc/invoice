@@ -1,0 +1,15 @@
+/* 
+    Author     : Magdalena Śniegocka
+*/
+
+#nav-top {background-color: #112d37 !important; color: #d0b661;}
+#nav-top a {color: #d0b661;}
+.btn-custom{background-color: #112d37 !important; color: #d0b661 !important;}
+.btn-custom:hover{color: #b99247 !important;}
+.form-control:focus {
+    border-color: #d0b661;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgb(208, 182, 97, 0.25);
+}
+
+
