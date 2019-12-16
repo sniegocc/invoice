@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>My little invoice</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
@@ -18,7 +18,7 @@ and open the template in the editor.
             <div class="container">
                 <a class="navbar-brand" href="/">
                     <img src="img/sniegoccsqr75x75.png" class="pr-2" alt="">
-                    Kalkulator kosztów
+                    My little invoice
                 </a>
             </div>
         </nav>
@@ -29,23 +29,17 @@ and open the template in the editor.
                     <div class="col-sm-12 col-md-11">
                         <form class="mt-5">
                             <div class="form-row my-1" >
-                            <div ng-repeat="option in calcList.options"  ng-if="option.flag" class="col {{option.colOpt}}">
-                                {{option.text}}
+                                <div ng-repeat="option in calcList.options"  ng-if="option.flag" class="col text-center {{option.colOpt}}">
+                                    {{option.text}}
+                                </div>
                             </div>
-                        </div>
                             <div class="form-row my-1"  ng-repeat="item in calcList.items track by $index">
                                 <div ng-repeat="option in calcList.options"  ng-if="option.flag" class="col {{option.colOpt}}">
-                                <div class="col">
-                                    <input ng-if="option.editable" type="text" class="form-control"  ng-model="item[option.label]" id="{{option.label}}-id-{{item[option.label]}}"  >
-                                    <span ng-if="!option.editable">{{item[option.label]}}</span>
+                                    <div class="col text-center">
+                                        <input ng-if="option.editable" type="text" class="form-control"  ng-model="item[option.label]" id="{{option.label}}-id-{{item.lp}}"  >
+                                        <span ng-if="!option.editable">{{item[option.label]}}</span>
+                                    </div>
                                 </div>
-                            </div>
-                             <!--   <div class="col">
-                                    <input type="text" class="form-control"  ng-model="item.name" id="name-id-{{$index}}"  placeholder="Wpisz pozycje kosztową">
-                                </div>
-                                <div class="col">
-                                    <input type="text" class="form-control"  ng-model="item.count" id="count-id-{{$index}}" ng-pattern="/^(\d)+$/" placeholder="Podaj koszt (PLN)">
-                                </div> -->
                             </div>
                             <div class="form-row">
                                 <div class="col text-right pr-2"> Podsumowanie:</div>
@@ -69,14 +63,16 @@ and open the template in the editor.
                         </div>
                     </div>
                 </div>
+
             </div>
         </main>
- 
+
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" ></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" ></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
         <script src="lib/angular/angular.js" ></script>
         <script src="lib/underscore-min.js" ></script>
+
         <script src="app.js" ></script>
     </body>
 </html>
