@@ -7,9 +7,31 @@
 .btn-custom{background-color: #112d37 !important; color: #d0b661 !important;}
 .btn-custom:hover{color: #b99247 !important;}
 .form-control:focus {
+    border: none;
+    border-bottom: 1px solid #ced4da;
     border-color: #d0b661;
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgb(208, 182, 97, 0.25);
 }
+.form-control {
+    border: none;
+    border-bottom: 1px solid #ced4da;
+    border-radius: 0px;
+}
+select {
+    border: none;
+    border-bottom: 1px solid #ced4da;
+    border-radius: 0px;
+    padding: 5px;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #112d37;
+    background-color: transparent;
+    border-bottom: 2px solid #112d37;
+    border-radius: 0px;
+}
 
-
+.nav-pills .nav-link, .nav-pills .show>.nav-link {
+    color: #112d37;
+    background-color: transparent;
+}

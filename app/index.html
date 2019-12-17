@@ -22,48 +22,61 @@ and open the template in the editor.
                 </a>
             </div>
         </nav>
-        <main>
-            <div class="container">
-                <div class="row" ng-controller="calcAppCtrl as calcList">
-                    <div class="col-12"></div>
-                    <div class="col-sm-12 col-md-11">
-                        <form class="mt-5">
-                            <div class="form-row my-1" >
-                                <div ng-repeat="option in calcList.options"  ng-if="option.flag" class="col text-center {{option.colOpt}}">
-                                    {{option.text}}
+        <main  ng-controller="calcAppCtrl as calcList">
+            <ul class="nav nav-pills nav-fill my-3">
+                <li class="nav-item">
+                    <a class="nav-link active" id="invoiceData-tab" data-toggle="tab" href="#invoiceData" role="tab" aria-controls="invoiceData" aria-selected="true" >Dane do faktury</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="invoicePreview-tab" data-toggle="tab" href="#invoicePreview" role="tab" aria-controls="invoicePreview" aria-selected="false" >Podgląd</a>
+                </li>
+            </ul>
+            <div class="tab-content px-2">
+                <div class="tab-pane active" id="invoiceData" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="row">
+                        <div class="col-12"></div>
+                        <div class="col-sm-12 col-md-11">
+                            <form class="mt-5">
+                                <div class="form-row mb-5">
+                                    <select name="countingOption" id="countingOption" ng-model="calcList.countingOption.model">
+                                        <option ng-repeat="option in calcList.countingOption.options" value="{{option.id}}">{{option.name}}</option>
+                                    </select>
                                 </div>
-                            </div>
-                            <div class="form-row my-1"  ng-repeat="item in calcList.items track by $index">
-                                <div ng-repeat="option in calcList.options"  ng-if="option.flag" class="col {{option.colOpt}}">
-                                    <div class="col text-center">
-                                        <input ng-if="option.editable" type="text" class="form-control"  ng-model="item[option.label]" id="{{option.label}}-id-{{item.lp}}"  >
-                                        <span ng-if="!option.editable">{{item[option.label]}}</span>
+                                <div class="form-row my-1" >
+                                    <div ng-repeat="option in calcList.options"  ng-if="option.flag" class="col text-center {{option.colOpt}}">
+                                        {{option.text}}
                                     </div>
                                 </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col text-right pr-2"> Podsumowanie:</div>
-                                <div class="col">
-                                    <input type="text" class="form-control"  ng-model="calcList.summary" id="summary-id" >
+                                <div class="form-row my-1"  ng-repeat="item in calcList.items track by $index">
+                                    <div ng-repeat="option in calcList.options"  ng-if="option.flag" class="col {{option.colOpt}}">
+                                        <div class="col text-center">
+                                            <input ng-if="option.editable" type="text" class="form-control"  ng-model="item[option.label]" id="{{option.label}}-id-{{item.lp}}"  >
+                                            <span ng-if="!option.editable">{{item[option.label]}}</span>
+                                        </div>
+                                    </div>
                                 </div>
+                                <div class="form-row">
+                                    <div class="col text-right pr-2"> Podsumowanie:</div>
+                                    <div class="col">
+                                        <input type="text" class="form-control"  ng-model="calcList.summary" id="summary-id" >
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col"><a ng-click="calcList.newItem()" class="btn btn-custom">Dodaj nowy</a></div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-sm-12 col-md-1 pt-5">
+                            <div class="form-check" ng-repeat="option in calcList.options">
+                                <input class="form-check-input" type="checkbox"  ng-model="option.flag" id="{{option.label}}" >
+                                <label class="form-check-label" for="{{option.label}}">
+                                    {{option.text}}
+                                </label>
                             </div>
-                            <div class="form-row">
-                                <div class="col"><a ng-click="calcList.newItem()" class="btn btn-custom">Dodaj nowy</a></div>
-
-                            </div>
-                        </form>
-
-                    </div>
-                    <div class="col-sm-12 col-md-1 pt-5">
-                        <div class="form-check" ng-repeat="option in calcList.options">
-                            <input class="form-check-input" type="checkbox"  ng-model="option.flag" id="{{option.label}}" >
-                            <label class="form-check-label" for="{{option.label}}">
-                                {{option.text}}
-                            </label>
                         </div>
                     </div>
                 </div>
-
+                <div class="tab-pane" id="invoicePreview" role="tabpanel" aria-labelledby="profile-tab">...</div>
             </div>
         </main>
 
