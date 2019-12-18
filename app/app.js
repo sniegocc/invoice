@@ -12,7 +12,7 @@ angular.module('calcApp', [])
                 {label: 'count', flag: true, text: 'Ilość', colOpt: '', editable: true, maxlength: 4},
                 {label: 'unit', flag: true, text: 'Jednostka', colOpt: '', editable: true, maxlength: 5},
                 {label: 'net', flag: true, text: 'Cena netto', colOpt: '', editable: true, maxlength: 10},
-                {label: 'gross', flag: true, text: 'Cena brutto', colOpt: '', editable: true, maxlength: 10},
+                {label: 'gross', flag: true, text: 'Cena brutto', colOpt: '', editable: false, maxlength: 10},
                 {label: 'rabat', flag: true, text: 'Rabat', colOpt: '', editable: true, maxlength: 3},
                 {label: 'rabNet', flag: true, text: 'Cena netto po rabacie', colOpt: '', editable: false, maxlength: 10},
                 {label: 'vat', flag: true, text: 'Vat', colOpt: '', editable: true, maxlength: 3},
@@ -99,15 +99,15 @@ angular.module('calcApp', [])
             $scope.$watch(function () {
                 calcList.summary = calcList.fullCost();
 
-                if (calcList.countingOption.model == 'netto') {
-                    console.log(_.findWhere(calcList.options, {label: 'net'})['flag'])
-                    _.findWhere(calcList.options, {label: 'net'})['flag'] = true;
-                    _.findWhere(calcList.options, {label: 'gross'})['flag'] = false;
-
-                } else {
-                    _.findWhere(calcList.options, {label: 'net'})['flag'] = false;
-                    _.findWhere(calcList.options, {label: 'gross'})['flag'] = true;
-                }
+//                if (calcList.countingOption.model == 'netto') {
+//                    console.log(_.findWhere(calcList.options, {label: 'net'})['flag'])
+//                    _.findWhere(calcList.options, {label: 'net'})['flag'] = true;
+//                    _.findWhere(calcList.options, {label: 'gross'})['flag'] = false;
+//
+//                } else {
+//                    _.findWhere(calcList.options, {label: 'net'})['flag'] = false;
+//                    _.findWhere(calcList.options, {label: 'gross'})['flag'] = true;
+//                }
             });
 
 
