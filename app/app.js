@@ -1,3 +1,6 @@
+/* 
+    Author     : Magdalena Śniegocka
+*/
 angular.module('calcApp', [])
         .controller('calcAppCtrl', function ($scope) {
             var calcList = this;
@@ -38,7 +41,6 @@ angular.module('calcApp', [])
             calcList.fullCost = function (label) {
                 var fullCost = 0;
                 angular.forEach(calcList.items, function (item) {
-                    console.log(item[label], parseFloat(item[label]))
                     if (!isNaN(item[label])) {
                         fullCost += parseFloat(item[label]);
                     }
